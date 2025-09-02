@@ -1,0 +1,418 @@
+ <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #000;
+            color: #fff;
+        }
+
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: #111;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e50914;
+        }
+
+        .nav-icons span {
+            margin-left: 20px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .product-page {
+            display: grid;
+            grid-template-columns: 120px 1fr 1fr;
+            gap: 20px;
+            padding: 30px;
+        }
+
+
+        .thumbs {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .thumbs img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border: 2px solid #333;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .thumbs img:hover {
+            border-color: #e50914;
+        }
+
+
+        .main-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+
+
+        .details h2 {
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+
+        .details p {
+            font-size: 16px;
+            color: #aaa;
+            margin-bottom: 10px;
+        }
+
+        .ratings {
+            margin-bottom: 10px;
+            color: #e50914;
+        }
+
+        .price {
+            margin: 15px 0;
+        }
+
+        .price .new {
+            font-size: 22px;
+            font-weight: bold;
+            color: #0f0;
+        }
+
+        .price .old {
+            text-decoration: line-through;
+            margin-left: 10px;
+            color: #777;
+        }
+
+        .price .discount {
+            display: block;
+            color: #0ff;
+            margin-top: 5px;
+        }
+
+        .stock {
+            margin: 10px 0;
+            color: #0f0;
+            font-weight: bold;
+        }
+
+        .add-cart {
+            background: #e50914;
+            color: #fff;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .add-cart:hover {
+            background: #b00610;
+        }
+
+
+        .offers p {
+            margin-bottom: 10px;
+        }
+
+        .offers button {
+            background: #222;
+            color: #fff;
+            border: 1px solid #444;
+            padding: 8px 15px;
+            border-radius: 6px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .offers button:hover {
+            border-color: #e50914;
+        }
+
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0 10px;
+            gap: 20px;
+        }
+
+        .tabs button {
+            background: #111;
+            border: 1px solid #333;
+            padding: 10px 20px;
+            color: #fff;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .tabs button:hover {
+           background:red;
+            
+        }
+
+
+        .specs {
+            padding: 20px 40px;
+            background: #111;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .specs p {
+            margin: 8px 0;
+            font-size: 15px;
+        }
+
+
+        .related {
+            padding: 20px 30px;
+        }
+
+        .related h3 {
+            margin-bottom: 20px;
+            font-size: 22px;
+            border-bottom: 2px solid #333;
+            display: inline-block;
+            text-align: center;
+            width: 100%;
+           
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: #111;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 150px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+
+        .card h4 {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        .card p {
+            font-size: 14px;
+        }
+
+        .card .old {
+            text-decoration: line-through;
+            color: #777;
+            margin-left: 5px;
+        }
+
+        .card button {
+            margin-top: 10px;
+            background: #e50914;
+            border: none;
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .card button:hover {
+            background: #b00610;
+        }
+
+        .advantages {
+            padding: 50px 20px;
+        }
+
+        .advantages h2 {
+            text-align: center;
+            font-size: 26px;
+            margin-bottom: 40px;
+        }
+
+        .advantage-items {
+            display: flex;
+            justify-content: space-evenly;
+            gap: 20px;
+            flex-wrap: wrap;
+
+        }
+
+        .advantage {
+            text-align: center;
+            padding: 20px;
+            max-width: 220px;
+            transition: 0.3s;
+        }
+
+        .advantage:hover {
+            color: red;
+            transform: scale(1.05);
+        }
+
+        .advantage h3 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            font-size: 18px;
+            color: white;
+            gap: 8px;
+        }
+
+        .advantage p {
+            font-size: 14px;
+            color: gray;
+            text-align: center;
+            margin: 5px 0 0;
+        }
+
+        .advantage .icon {
+            font-size: 22px;
+        }
+
+        footer {
+            background-color: #111;
+            color: white;
+            padding: 40px 20px 20px;
+            font-size: 14px;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .footer-section {
+            flex: 1 1 220px;
+            min-width: 220px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 15px;
+            color: red;
+            font-size: 18px;
+        }
+
+        .footer-section p,
+        .footer-section ul,
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            margin: 5px 0;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin: 8px 0;
+        }
+
+        .footer-section ul li a {
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: red;
+        }
+
+        .subscribe-form {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            flex-direction: column;
+        }
+
+        .subscribe-form input[type="email"] {
+            width: 50%;
+            flex: 1;
+            max-width: 200px;
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+        }
+
+        .subscribe-form button {
+            background-color: red;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 40%;
+            border-radius: 5px;
+            padding: 8px 12px;
+            border: none;
+            margin: 0 0 0 0;
+        }
+
+        .subscribe-form button:hover {
+            background-color: darkred;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 20px;
+            border-top: 1px solid gray;
+            padding-top: 10px;
+            color: gray;
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .subscribe-form {
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+            }
+
+            .subscribe-form input[type="email"],
+            .subscribe-form button {
+                width: 100%;
+            }
+        }
+    </style>
